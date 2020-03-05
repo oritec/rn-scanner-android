@@ -1,0 +1,67 @@
+def safeExtGet(prop, fallback) {
+    rootProject.ext.has(prop) ? rootProject.ext.get(prop) : fallback
+}
+
+apply plugin: 'com.android.library'
+apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: "com.jfrog.bintray"
+
+buildscript {
+
+    repositories {
+        mavenCentral()
+        jcenter()
+    
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.2.3'
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.4.1'
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.1'
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+android {
+    compileSdkVersion safeExtGet('compileSdkVersion', 26)
+    buildToolsVersion safeExtGet('buildToolsVersion', '26.0.2')
+
+    defaultConfig {
+        minSdkVersion safeExtGet('minSdkVersion', 16)
+        targetSdkVersion safeExtGet('targetSdkVersion', 26)
+        versionCode 1
+        versionName "1.0"
+        ndk {
+            abiFilters "armeabi-v7a", "x86"
+        }
+    }
+}
+
+allprojects {
+    repositories {
+        jcenter()
+        maven {
+            url 'https://maven.google.com'
+        }
+        maven {
+            url  "http://dl.bintray.com/steveliles/maven"
+        }
+    }
+}
+
+dependencies {
+    def googlePlayServicesVersion = safeExtGet("googlePlayServicesVersion", '11.8.0')
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile 'com.facebook.react:react-native:+'
+    // compile 'com.android.support:appcompat-v7:23.4.0'
+    compile 'com.android.support:support-annotations:+'
+    //compile files('libs/js.jar')
+
+    compile 'com.android.support:appcompat-v7:26.1.0'
+    compile "com.android.support:exifinterface:26.1.0"
+    compile "com.google.android.gms:play-services-basement:$googlePlayServicesVersion"
+    compile "com.google.android.gms:play-services-vision:$googlePlayServicesVersion"
+    compile 'online.devliving:mobilevision-pipeline:1.0.7'
+    implementation project(path:':openCVLibrary310')
+}
