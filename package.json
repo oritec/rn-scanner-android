@@ -2,6 +2,12 @@
   "name": "rn-scanner-android",
   "version": "1.0.0",
   "main": "index.js",
+  "homepage": "https://github.com/oritec/rn-scanner-android",
+  "bugs": "https://github.com/oritec/rn-scanner-android/issues",
+  "repository": {
+    "url": "https://github.com/oritec/rn-scanner-android",
+    "type": "git"
+  },
   "author": "Oritec SpA (aceron@oritec.cl)",
   "license": "MIT"
 }
