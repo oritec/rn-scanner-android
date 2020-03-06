@@ -249,7 +249,7 @@ public final class Util {
 
     public static boolean setExifRotation(Context context, Uri imageUri, int rotation) throws IOException {
         Log.d("Oritec", "setExifRotation");
-        Log.d("Oritec", imageUri.getAbsolutePath);
+        Log.d("Oritec", imageUri);
         if (imageUri == null) return false;
 
         InputStream destStream = null;
