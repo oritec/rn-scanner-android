@@ -249,6 +249,7 @@ public final class Util {
 
     public static boolean setExifRotation(Context context, Uri imageUri, int rotation) throws IOException {
         Log.d("Oritec", "setExifRotation");
+        Log.d("Oritec", imageUri.getAbsolutePath());
         if (imageUri == null) return false;
 
         InputStream destStream = null;
@@ -256,7 +257,7 @@ public final class Util {
             destStream = context.getContentResolver().openInputStream(imageUri);
 
             ExifInterface exif = new ExifInterface(destStream);
-
+            //ExifInterface exif = new ExifInterface(imageUri.getAbsolutePath());
             exif.setAttribute("UserComment", "Generated using CVScanner");
 
             int orientation = ExifInterface.ORIENTATION_NORMAL;
