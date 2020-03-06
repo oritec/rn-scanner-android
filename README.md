@@ -52,7 +52,9 @@ compileSdkVersion 26
 
 #### Bonus: install OpenCV library for Android
 
-I found [this](https://medium.com/@sukritipaul005/a-beginners-guide-to-installing-opencv-android-in-android-studio-ea46a7b4f2d3) excellent guide to install OpenCV on your Android Projects that works just fine with this library.
+I found [this](https://medium.com/@sukritipaul005/a-beginners-guide-to-installing-opencv-android-in-android-studio-ea46a7b4f2d3) 
+excellent guide to install OpenCV on your Android Projects that works just fine with this library. 
+Just follow every step of the guide but using OpenCV SDK version [3.1.0](https://sourceforge.net/projects/opencvlibrary/files/opencv-android/3.1.0/OpenCV-3.1.0-android-sdk.zip/download).
 
 ## Usage
 
