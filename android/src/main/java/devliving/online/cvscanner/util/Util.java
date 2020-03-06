@@ -248,6 +248,7 @@ public final class Util {
     }
 
     public static boolean setExifRotation(Context context, Uri imageUri, int rotation) throws IOException {
+        Log.d("Oritec", "setExifRotation");
         if (imageUri == null) return false;
 
         InputStream destStream = null;
