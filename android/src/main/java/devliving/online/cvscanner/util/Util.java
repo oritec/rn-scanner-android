@@ -282,6 +282,41 @@ public final class Util {
         return true;
     }
 
+    public static boolean setExifRotation(Context context, String imagePath, int rotation) throws IOException {
+        Log.d("Oritec", "setExifRotation");
+        Log.d("Oritec", imagePath);
+        //if (imageUri == null) return false;
+
+        InputStream destStream = null;
+        try{
+            //destStream = context.getContentResolver().openInputStream(imageUri);
+
+            ExifInterface exif = new ExifInterface(imagePath);
+            //ExifInterface exif = new ExifInterface(imageUri.getAbsolutePath());
+            exif.setAttribute("UserComment", "Generated using CVScanner");
+
+            int orientation = ExifInterface.ORIENTATION_NORMAL;
+            switch (rotation){
+                case 1:
+                    orientation = ExifInterface.ORIENTATION_ROTATE_90;
+                    break;
+
+                case 2:
+                    orientation = ExifInterface.ORIENTATION_ROTATE_180;
+                    break;
+
+                case 3:
+                    orientation = ExifInterface.ORIENTATION_ROTATE_270;
+                    break;
+            }
+            exif.setAttribute(ExifInterface.TAG_ORIENTATION, String.valueOf(orientation));
+            exif.saveAttributes();
+        }finally {
+            closeSilently(destStream);
+        }
+        return true;
+    }
+
     private static int getMaxImageSize() {
         int textureLimit = getMaxTextureSize();
         if (textureLimit == 0) {
