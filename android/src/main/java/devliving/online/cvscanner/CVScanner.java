@@ -1,7 +1,7 @@
 package devliving.online.cvscanner;
 
 import android.app.Activity;
-import android.app.ActivityInfo;
+import android.content.pm.ActivityInfo;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
