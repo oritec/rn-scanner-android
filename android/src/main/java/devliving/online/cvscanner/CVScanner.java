@@ -1,6 +1,7 @@
 package devliving.online.cvscanner;
 
 import android.app.Activity;
+import android.app.ActivityInfo;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -45,6 +46,7 @@ public final class CVScanner {
                 takePictureIntent.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
 
                 takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoUri);
+                takePictureIntent.putExtra(MediaStore.EXTRA_SCREEN_ORIENTATION, ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
                 context.startActivityForResult(takePictureIntent, reqCode);
 
                 return photoUri;

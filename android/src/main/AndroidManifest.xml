@@ -15,11 +15,13 @@
 
         <activity android:name="devliving.online.cvscanner.DocumentScannerActivity"
             android:theme="@style/CVScannerTheme"
+            android:screenOrientation="portrait"
             android:configChanges="orientation|screenSize"
             />
 
         <activity android:name="devliving.online.cvscanner.crop.CropImageActivity"
             android:theme="@style/CVScannerTheme"
+            android:screenOrientation="portrait"
             android:configChanges="orientation|screenSize"
             />
 
